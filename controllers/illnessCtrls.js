@@ -1,7 +1,7 @@
 const db = require("../models")
 
 // Get Illness
-const getIllness = (req, res) = {
+const getIllness = (req, res) => {
     db.Illness.find({})
     .then((foundIllness) => {
         if (!foundIllness) {
