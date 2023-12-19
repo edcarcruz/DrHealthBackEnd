@@ -7,6 +7,6 @@ const IllnessSchema = new mongoose.Schema({
     image: String
 })
 
-const Illness = mongoose.model('Illness', IllnessSchemaSchema)
+const Illness = mongoose.model('Illness', IllnessSchema)
 
 module.exports = Illness
