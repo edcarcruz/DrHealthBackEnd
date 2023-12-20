@@ -31,7 +31,7 @@ const updateProcedure = (req, res) => {
         if(!updatedProcedure) {
             res.status(400).json({message: "Could Not Update Procedure Information"})
         } else {
-            res.status(200).json({Data: updatedIllness, message: "Procedure Information Updated"})
+            res.status(200).json({Data: updatedProcedure, message: "Procedure Information Updated"})
         }
     })
 }
@@ -43,7 +43,7 @@ const deleteProcedure = (req, res) => {
         if(!deleteProcedure) {
             res.status(400).json({message: "Could Not Delete Procedure"})
         } else {
-            res.status(200).json({Data: deleteIllness, message: "Procedure Information Deleted"})
+            res.status(200).json({Data: deleteProcedure, message: "Procedure Information Deleted"})
         }
     })
 }
