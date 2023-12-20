@@ -13,5 +13,6 @@ mongoose.connection
     .on('error', (error) => console.log(error));
 
 module.exports = {
-    Illness: require('./Illness')
+    Illness: require('./Illness'),
+    Procedure: require('./Procedure')
 }
