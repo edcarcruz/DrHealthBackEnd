@@ -24,10 +24,6 @@ app.use(express.json());
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
-// create a test route
-// app.get("/", (req, res) => {
-//   res.send("hello world");
-// });
 
 app.use('/', routes);
 
