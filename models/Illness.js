@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const IllnessSchema = new mongoose.Schema({
     name: String,
     symptoms: String,
+    description: String,
     image: String
 })
 
