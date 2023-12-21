@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
-const {DATABASE_URL} = process.env
-
+const { DATABASE_URL } = process.env;
 // DATABASE CONNECTION
+// establish the connection
 mongoose.connect(DATABASE_URL, {
     useUnifiedTopology: true,
-    useNewUrlParser: true,
-})
-// Connection Events
-mongoose.connection
-    .on("open", () => console.log("You're connected to mongoose"))
-    .on("close", () => console.log("You're disconnected from mongoose"))
-    .on("error", (error) => console.log(error));
+    useNewUrlParser: true
+});
 
+mongoose.connection
+    .on('open', () => console.log('Your connection is open!'))
+    .on('close', () => console.log('Your connection is closed!'))
+    .on('error', (error) => console.log(error));
 
 module.exports = {
-    Illness: require('./Illness.js')
+    Illness: require('./Illness'),
+    Procedure: require('./Procedure')
 }

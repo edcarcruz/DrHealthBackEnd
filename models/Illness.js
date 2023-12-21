@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+/// MODELS
 
 const IllnessSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -7,6 +8,6 @@ const IllnessSchema = new mongoose.Schema({
     image: String,
 })
 
-const Illness = mongoose.model("Illness", IllnessSchema);
+const Illness = mongoose.model('Illness', IllnessSchema)
 
 module.exports = Illness

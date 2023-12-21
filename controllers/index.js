@@ -1,3 +1,5 @@
 module.exports = {
-    illnessCtrl: require('./illnessCtrls.js')
+    illnessCtrl: require('./illnessCtrls.js'),
+    procedureCtrl: require('./procedureCtrls.js'),
+
 }
