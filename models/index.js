@@ -14,5 +14,6 @@ mongoose.connection
 
 module.exports = {
     Illness: require('./Illness'),
-    Procedure: require('./Procedure')
+    Procedure: require('./Procedure'),
+    User: require('./User'),
 }
