@@ -16,10 +16,21 @@ const connection = require('./models/index')
 // import cors
 const cors = require('cors');
 
+const bcrypt = require('bcrypt')
+const session = require('express-session')
+
 // middleware
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(
+    session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
 
 ///////////////////////////////
 // ROUTES
