@@ -25,7 +25,7 @@ const login = async (req, res) => {
             res.status(401).json({ message: "Invalid Login"})
         }
     } catch(error) {
-        res.status(500).json({ message: "Internal server error"})
+        res.status(500).json({ message: "Internal Server Error"})
     }
 }
 
@@ -34,15 +34,26 @@ const logout = (req, res) => {
     req.session.destroy((err) => {
       if (err) {
         console.error(err);
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(500).json({ message: 'Internal Server Error' });
       } else {
-        res.json({ message: 'Logout successful' });
+        res.json({ message: 'Logout Successful' });
       }
     });
+  };
+
+  const requireAuth = (req, res, next) => {
+    if (req.session.user) {
+      // User is authenticated, proceed to the next middleware or route handler
+      next();
+    } else {
+      // User is not authenticated, send a 401 Unauthorized response
+      res.status(401).json({ message: 'Unauthorized' });
+    }
   };
 
 module.exports = {
     login,
     logout,
-    register
+    register,
+    requireAuth
 }
