@@ -10,37 +10,55 @@ const express = require("express");
 // create application object
 const app = express();
 // import all available routes in our routes/index.js
-const routes = require('./routes/index');
+const routes = require("./routes/index");
 //connection import
-const connection = require('./models/index')
+const connection = require("./models/index");
 // import cors
-const cors = require('cors');
+const cors = require("cors");
+
+const User = require("./models/User");
+
+const session = require("express-session");
+const bcrypt = require("bcrypt");
+
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  };
 
 const bcrypt = require('bcrypt')
 const session = require('express-session')
 
 // middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
-    session({
+  session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
   })
 );
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Internal Server Error' });
+  });
+
 
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
 
-app.use('/', routes);
+app.use("/", routes);
 
 app.use((req, res) => {
-    res.status(404).json({ message: 'Not a Proper Route!' })
-})
+  res.status(404).json({ message: "Not a Proper Route!" });
+});
 
 ///////////////////////////////
 // LISTENER

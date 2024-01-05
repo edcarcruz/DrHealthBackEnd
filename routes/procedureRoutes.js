@@ -1,7 +1,7 @@
 const router = require('express').Router();
 // all functions/methods from people's controller's index.js
 const { procedureCtrl } = require('../controllers');
-const { requireAuth } = require("../controllers/authCtrls.js")
+const { requireAuth } = require('../controllers/authCtrls.js');
 
 router.get('/', procedureCtrl.getProcedure);
 router.post('/', requireAuth, procedureCtrl.createProcedure);
