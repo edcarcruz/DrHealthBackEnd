@@ -20,7 +20,7 @@ const login = async (req, res) => {
         const user = await User.findOne({ username });
 
         if (user && bcrypt.compareSync(password, user.password)) {
-            req.session.user = user;
+            req.session.user = { username: user.username, id: user._id };
             res.json({message: 'Login Successful'})
         } else {
             res.status(401).json({ message: "Invalid Login"})
