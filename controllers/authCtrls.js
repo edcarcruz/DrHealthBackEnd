@@ -15,6 +15,7 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     const { username, password } = req.body;
+    
     try {
         const user = await User.findOne({ username });
 
@@ -24,6 +25,7 @@ const login = async (req, res) => {
         } else {
             res.status(401).json({ message: "Invalid Login"})
         }
+        console.log(user);
     } catch(error) {
         res.status(500).json({ message: "Internal server error"})
     }
