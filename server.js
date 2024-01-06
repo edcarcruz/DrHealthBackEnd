@@ -21,15 +21,10 @@ const User = require("./models/User");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
 
-const corsOptions = {
-    origin: 'http://localhost:3000',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-  };
+
 
 // middleware
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
