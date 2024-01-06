@@ -4,9 +4,9 @@ const { procedureCtrl } = require('../controllers');
 const { requireAuth } = require('../controllers/authCtrls.js');
 
 router.get('/', procedureCtrl.getProcedure);
-router.post('/', requireAuth, procedureCtrl.createProcedure);
-router.put('/:id', requireAuth, procedureCtrl.updateProcedure);
-router.delete('/:id', requireAuth, procedureCtrl.deleteProcedure);
+router.post('/', procedureCtrl.createProcedure);
+router.put('/:id', procedureCtrl.updateProcedure);
+router.delete('/:id', procedureCtrl.deleteProcedure);
 
 
 module.exports = router;
