@@ -28,9 +28,6 @@ const corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization']
   };
 
-const bcrypt = require('bcrypt')
-const session = require('express-session')
-
 // middleware
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));

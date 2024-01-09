@@ -4,9 +4,9 @@ const { illnessCtrl } = require('../controllers');
 const { requireAuth } = require('../controllers/authCtrls.js');
 
 router.get('/', illnessCtrl.getIllness);
-router.post('/', requireAuth, illnessCtrl.createIllness);
-router.put('/:id', requireAuth, illnessCtrl.updateIllness);
-router.delete('/:id', requireAuth, illnessCtrl.deleteIllness);
+router.post('/', illnessCtrl.createIllness);
+router.put('/:id', illnessCtrl.updateIllness);
+router.delete('/:id', illnessCtrl.deleteIllness);
 
 
 module.exports = router;
